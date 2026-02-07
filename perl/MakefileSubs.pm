@@ -110,7 +110,7 @@ sub AddCommonParams {
 	chomp($ldflags);
 	append($Params->{'LDDLFLAGS'}, $ldflags);
 	append($Params->{'CCFLAGS'},
-	       "-I" . File::Spec->catdir($basedir, "include"));
+	       "-I" . File::Spec->catdir($basedir, "-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT -D_GNU_SOURCE -I/home/runner/work/mosdns/mosdns/sdk/staging_dir/target-aarch64_generic_musl/usr/lib/perl5/5.42/CORE"));
 	my $cflags = `$opts->{'nsconfig'} --cflags` or
 	    die "net-snmp-config failed\n";
 	chomp($cflags);
